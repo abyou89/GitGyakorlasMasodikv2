@@ -8,10 +8,15 @@ public class GitGyakorlas2 {
 
     public static void main(String[] args) {
         feladatok();
-        kiir();
     }
 
     private static void feladatok() {
+        progTetelek();
+        kiir();
+    
+    }
+
+    private static void progTetelek() {
         szamokTombKiir();
         osszegzes();
         megszamlalas();
@@ -21,7 +26,6 @@ public class GitGyakorlas2 {
         eldontes_1_vanLegalabbEgy();
         eldontes_2_mind();
         linearisKereses();
-    
     }
     
      private static void szamokTombKiir() {
@@ -74,24 +78,44 @@ public class GitGyakorlas2 {
     
     }
 
-    private static int kivalasztas() {
-       
-    return 0;
+    private static boolean kivalasztas() {
+       int ker = 5;
+        int i = 0;
+        while(i < szamok.length && !(szamok[i] == ker)){
+            i++;
+        }
+        boolean valasz = i < szamok.length; 
+    return valasz;
     }
 
     private static boolean eldontes_1_vanLegalabbEgy() {
-       
-    return false;
+       int ker = 5;
+       int i = 0;
+       while(i < szamok.length && !(szamok[i] > ker)){
+            i++;
+        }
+        boolean valasz = i < szamok.length;
+    return valasz;
     }
 
     private static boolean eldontes_2_mind() {
-        
-    return false;
+        int ker = 0;
+        int i = 0;
+        while(i < szamok.length && szamok[i] > ker){
+            i++;
+        }
+        boolean valasz = i >= szamok.length; 
+    return valasz;
     }
 
     private static int linearisKereses() {
-        
-    return 0;
+        int ker = 8;
+        int i = 0;
+        while(i < szamok.length && !(szamok[i] > ker)){
+            i++;
+        }
+        boolean van = i < szamok.length;
+    return ker;
     }
 
     private static void kiir() {
@@ -101,5 +125,9 @@ public class GitGyakorlas2 {
         System.out.println("A legnagyobb elem helye: " + maximumKivalasztas());
         System.out.println("A sorozat legnagyobb eleme: " + szamok[minimumKivalasztas()]);
         System.out.println("A legnagyobb elem helye: " + minimumKivalasztas());
+        System.out.println("A sorozatban megtalalható a keresett ertek: " + kivalasztas());
+        System.out.println("Van a keresett erteknel nagyobb elem a sorozatban: " + eldontes_1_vanLegalabbEgy());
+        System.out.println("Minden szam nagyobb mint a keresett ertek: " + eldontes_2_mind());
+        System.out.println("A keresett elem nagyobb mint " + linearisKereses());
     }
 }
